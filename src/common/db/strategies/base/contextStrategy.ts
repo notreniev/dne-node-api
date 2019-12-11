@@ -2,9 +2,13 @@ import ICrud from "./../interfaces/interfaceCrud"
 
 export class ContextStrategy extends ICrud{
     database
-    constructor(strategy) {
+    constructor(protected strategy) {
         super()
         this.database = strategy
+    }
+
+    findAll() {
+        return this.database.findAll()
     }
 
     create(item) {
@@ -13,6 +17,10 @@ export class ContextStrategy extends ICrud{
 
     read(item) {
         return this.database.read(item)
+    }
+
+    findById(item) {
+        return this.database.findById(item)
     }
 
     update(id, item) {

@@ -5,6 +5,11 @@ export class NotImplementedException extends Error {
 }
 
 export default class ICrud {
+
+    findAll(item){
+        throw new NotImplementedException()
+    }
+
     create(item) {
         throw new NotImplementedException()
     }

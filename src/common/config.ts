@@ -1,21 +1,20 @@
 export const config = (env: string) => ({
-
     "development": {
         "username": "root",
         "password": "root",
-        "database": "apmnode",
+        "database": "dnedb",
         "host": "localhost",
         "dialectOptions": {
-            "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
+            "socketPath": '/var/run/postgresql/.s.PGSQL.5432'
         },
         "dialect": "postgres",
         "debug": true,
-        "port": 3100
+        "port": 3000
     },
     "homologation": {
         "username": "root",
         "password": "root",
-        "database": "apmnode",
+        "database": "dnedb",
         "host": "localhost",
         "dialect": "mysql",
         "logging": false,
@@ -25,7 +24,7 @@ export const config = (env: string) => ({
     "production": {
         "username": "root",
         "password": "root",
-        "database": "apmnode",
+        "database": "dnedb",
         "host": "localhost",
         "dialect": "mysql",
         "debug": false,

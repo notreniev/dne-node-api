@@ -22,8 +22,11 @@
     "@types/node": "^12.12.14",
     "express": "^4.17.1",
     "mysql2": "^2.0.1",
+    "nodemon": "^2.0.1",
+    "pg": "^7.14.0",
     "sequelize": "^5.21.2",
-    "nodemon": "^2.0.1"
+    "node-wsdl": "^1.0.1",
+    "soap": "0.30.0"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.29",

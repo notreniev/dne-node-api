@@ -8,9 +8,7 @@ services:
       - .:/usr/app/
       - /usr/app/node_modules
     ports:
-      - "3100:3000"
-    depends_on: 
-      - postgres
+      - "3000:3000"
   
   postgres:
     image: postgres
@@ -20,6 +18,8 @@ services:
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "root"
       POSTGRES_DB: "dnedb"
+    volumes:
+      - ~/dbdata:/var/lib/postgresql/data
     networks:
       - pgnet
 

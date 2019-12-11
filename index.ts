@@ -7,7 +7,7 @@ const routers = [cepRouter]
 server.bootstrap(routers)
   .then(() => console.log(`Server is running on ${server.config.host + ':' + server.config.port}`))
   .catch(error => {
-    console.log('Error on trying to load express server')
+    console.log('Error on trying t o load express server')
     console.error(error)
     process.exit(1)
   })
