@@ -1,4 +1,7 @@
-class MongoDB extends ICrud {
+import ICrud from "./interfaces/interfaceCrud"
+
+
+export class MongoDB extends ICrud {
     constructor() {
         super()
     }
@@ -7,5 +10,3 @@ class MongoDB extends ICrud {
         console.log('O item fo salvo em MongoDB')
     }
 }
-
-module.exports = MongoDB

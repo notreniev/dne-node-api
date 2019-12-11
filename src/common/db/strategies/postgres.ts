@@ -1,4 +1,7 @@
-class Postgres extends ICrud{
+import ICrud from "./interfaces/interfaceCrud"
+
+
+export class Postgres extends ICrud{
     constructor(){
         super()
     }
@@ -7,5 +10,3 @@ class Postgres extends ICrud{
         console.log('O item foi salvo em Postgres')
     }
 }
-
-module.exports = Postgres

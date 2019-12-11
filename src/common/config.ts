@@ -8,9 +8,9 @@ export const config = (env: string) => ({
         "dialectOptions": {
             "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
         },
-        "dialect": "mysql",
-        "debug": false,
-        "port": 3000
+        "dialect": "postgres",
+        "debug": true,
+        "port": 3100
     },
     "homologation": {
         "username": "root",

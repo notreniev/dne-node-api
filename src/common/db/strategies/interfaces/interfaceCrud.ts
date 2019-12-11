@@ -1,10 +1,10 @@
-class NotImplementedException extends Error {
+export class NotImplementedException extends Error {
     constructor() {
         super("Not Implemented Exception")
     }
 }
 
-class ICrud {
+export default class ICrud {
     create(item) {
         throw new NotImplementedException()
     }
@@ -21,5 +21,3 @@ class ICrud {
         throw new NotImplementedException()
     }
 }
-
-module.exports = ICrud

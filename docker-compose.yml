@@ -1,5 +1,17 @@
 version: "3"
+
 services:
+  web:
+    build: .
+    command: npm run dev
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "3100:3000"
+    depends_on: 
+      - postgres
+  
   postgres:
     image: postgres
     ports: 
@@ -47,3 +59,8 @@ services:
 networks:
   pgnet:
   mongonet:
+
+    #docker exec -it dne-node-api_mongo_1 mongo --host localhost -u root -p root --authenticationDatabase admin --eval "db.getSiblingDB('dnedb').createUser({user: 'root', pwd: 'root', roles: [{role: 'readWrite', db: 'dnedb'}]})"
+
+    #consigo rodar um docker exec no docker-compose ?
+    #consigo rodar um RUN dentro de um docker-compose

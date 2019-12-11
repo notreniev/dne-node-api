@@ -1,4 +1,6 @@
-class ContextStrategy extends ICrud{
+import ICrud from "./../interfaces/interfaceCrud"
+
+export class ContextStrategy extends ICrud{
     database
     constructor(strategy) {
         super()
@@ -21,5 +23,3 @@ class ContextStrategy extends ICrud{
         return this.database.delete(id)
     }
 }
-
-export default ContextStrategy

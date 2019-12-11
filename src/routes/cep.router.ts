@@ -17,7 +17,8 @@ class CepRouter extends Router {
     }
     
     findAll = async (req: express.Request, res: express.Response) => {
-        res.status(200).json(await this.model.findAll())
+        //res.status(200).json(await this.model.findAll())
+        res.status(200).json('teste')
     }
 
     findById = async (req: express.Request, res: express.Response) => {
