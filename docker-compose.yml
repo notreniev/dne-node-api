@@ -5,6 +5,8 @@ services:
     build: .
     depends_on: 
       - postgres
+    links: 
+      - postgres
     command: node dist/index.js
     volumes:
       - .:/usr/app/
