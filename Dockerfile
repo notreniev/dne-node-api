@@ -1,10 +1,14 @@
-FROM node:12
+FROM node:12.3.1
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
+COPY package.json .
+COPY tsconfig.json .
+RUN npm install --verbose
 RUN npm rebuild node-sass
 COPY . .
 
-EXPOSE 3000
+RUN npm i -g typescript
+RUN tsc
 
-CMD ["node", "dist/index.js"]
+RUN ls -la
+
+EXPOSE 3100

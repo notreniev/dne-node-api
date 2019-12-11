@@ -3,7 +3,7 @@ import express = require('express')
 import { ContextStrategy } from '../common/db/strategies/base/contextStrategy';
 import { MongoDB } from '../common/db/strategies/mongodb';
 import { Postgres } from '../common/db/strategies/postgres';
-import { Router } from "../common/interfaces/router.interface";
+import { Router } from '../interfaces/router.interface';
 import { CepModel } from '../models/cep.model';
 
 const url = "https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl";
@@ -56,7 +56,7 @@ class CepRouter extends Router {
                 retorno['result'] = query
             }
         } catch (error) {
-            retorno['error'] = error.cause.root.Envelope.Body.Fault.faultstring
+            retorno['error'] = error.cause.root.Envelope.Body.Fault.faultstring || error
         }
         res.send(retorno)
     }

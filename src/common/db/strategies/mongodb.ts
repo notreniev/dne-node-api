@@ -1,4 +1,4 @@
-import { Model } from "../../interfaces/model.interface"
+import { Model } from "../../../interfaces/model.interface"
 import ICrud from "./interfaces/interfaceCrud"
 
 

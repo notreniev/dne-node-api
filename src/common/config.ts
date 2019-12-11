@@ -9,7 +9,7 @@ export const config = (env: string) => ({
         },
         "dialect": "postgres",
         "debug": true,
-        "port": 3000
+        "port": 3100
     },
     "homologation": {
         "username": "root",

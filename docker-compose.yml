@@ -3,12 +3,16 @@ version: "3"
 services:
   web:
     build: .
-    command: npm run dev
+    depends_on: 
+      - postgres
+    command: node dist/index.js
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
     ports:
-      - "3000:3000"
+      - "3100:3100"
+    environment:
+      DATABASE_URL: postgres://root:root@postgres:5432/dnedb
   
   postgres:
     image: postgres

@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 
+import { Router } from '../interfaces/router.interface';
 import { config } from './config';
-import { Router } from './interfaces/router.interface';
 
 export class Server {
 
