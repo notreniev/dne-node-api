@@ -22,7 +22,6 @@ if (!db) {
     //         }
     //     })
     //postgres://user:pass@example.com:5432/dbname
-    console.log(`configs:::::::::::::: postgres://${config.username}:${config.password}@${config.host}:5432/${config.database}`)
     const sequelize = new Sequelize(`postgres://${config.username}:${config.password}@${config.host}:5432/${config.database}`)
 
     db['sequelize'] = sequelize

@@ -15,6 +15,7 @@ class CepRouter extends Router {
 
     constructor() {
         super()
+        cepModel.sync()
         this.contextPostgres = new ContextStrategy(new Postgres(cepModel))
         this.contextMongo = new ContextStrategy(new MongoDB(cepModel))  
     }
