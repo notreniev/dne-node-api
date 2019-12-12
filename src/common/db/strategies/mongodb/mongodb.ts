@@ -10,22 +10,15 @@ export class MongoDB<T> extends ICrud {
     }
 
     create(item){
-        console.log('O item foi salvo em MongoDB')
-        this.model.create(item.ceps.dataValues)
+        console.log('O log foi salvo em MongoDB', item)
     }
 
     findAll = async () => {
-        console.log('Lista de CEPs foi retornada do banco MongoDB')
-        return await this.model.findAll({ raw: true })
+        console.log('Lista de logs foi retornada do banco MongoDB')
     }
 
-    findById = async (cep: string) => {
-        console.log(`O CEP ${cep} foi retornado do banco MongoDB`)
-        return await this.model.findAll({
-            where: {
-                cep: `${cep}`
-            }
-        })
+    findById = async (log) => {
+        console.log(`O log foi retornado pelo banco MongoDB`)
     }
 
 }
