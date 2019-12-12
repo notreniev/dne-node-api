@@ -1,4 +1,5 @@
-### DNE-NODE
+### 
+DNE-NODE
 
 Busquei resolver um problema comum para muitas aplicações que precisam integrar-se com a base de dados dos correios (DNE - Diretório Nacional de Endereços) para obter informações de CEPs e endereços a assim compor as informações de endereços de pessoas para a maioria das necessidades de negócios existentes. 
 
@@ -11,18 +12,18 @@ http://localhost:3100/cep/90650002
 O retorno desta consulta será um JSON com os seguintes dados:
 
 {
-result: 
-[
-{
-id: 6,
-bairro: "Centro Histórico",
-cep: "90010340",
-cidade: "Porto Alegre",
-complemento2: "",
-end: "Praça dos Açorianos",
-uf: "RS",
-}
-]
+    result: 
+    [
+        {
+            id: 6,
+            bairro: "Centro Histórico",
+            cep: "90010340",
+            cidade: "Porto Alegre",
+            complemento2: "",
+            end: "Praça dos Açorianos",
+            uf: "RS",
+        }
+    ]
 } 
 
 O serviço sempre fará a busca primeiramente na base local do sistema e caso não encontre fará o acesso ao webservice dos correios para em seguida gravar o resultado da busca na base local. Esta base local então passará a servir como um cache para consultas de CEPs. 
