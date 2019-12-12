@@ -17,6 +17,7 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
+        "hostdatabase": "host.docker.internal",
         "dialect": "mysql",
         "logging": false,
         "debug": false,
@@ -27,6 +28,7 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
+        "hostdatabase": "host.docker.internal",
         "dialect": "mysql",
         "debug": false,
         "port": 5000
