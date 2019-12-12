@@ -4,10 +4,11 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
+        "hostdatabase": "host.docker.internal",
+        "dialect": "postgres",
         "dialectOptions": {
             "socketPath": '/var/run/postgresql/.s.PGSQL.5432'
         },
-        "dialect": "postgres",
         "debug": true,
         "port": 3100
     },
@@ -30,5 +31,5 @@ export const config = (env: string) => ({
         "debug": false,
         "port": 5000
     }
-    
+
 }[env] || {})

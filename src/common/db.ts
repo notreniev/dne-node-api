@@ -10,19 +10,19 @@ if (!db) {
 
     config = configuration(process.env.NODE_ENV || 'development')
 
-    // const sequelize = new Sequelize(
-    //     config.database,
-    //     config.username,
-    //     config.password,
-    //     {
-    //         host: config.host,
-    //         dialect: config.dialect,
-    //         dialectOptions: {
-    //             socketPath: config.dialectOptions.socketPath
-    //         }
-    //     })
+    const sequelize = new Sequelize(
+        config.database,
+        config.username,
+        config.password,
+        {
+            host: config.hostdatabase,
+            dialect: config.dialect,
+            dialectOptions: {
+                socketPath: config.dialectOptions.socketPath
+            }
+        })
     //postgres://user:pass@example.com:5432/dbname
-    const sequelize = new Sequelize(`postgres://${config.username}:${config.password}@${config.host}:5432/${config.database}`)
+    // const sequelize = new Sequelize(`postgres://${config.username}:${config.password}@${config.hostdatabase}:5432/${config.database}`)
 
     db['sequelize'] = sequelize
 

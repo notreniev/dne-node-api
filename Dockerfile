@@ -4,6 +4,7 @@ COPY package.json .
 COPY tsconfig.json .
 RUN npm install --verbose
 RUN npm rebuild node-sass
+
 COPY . .
 
 RUN npm i -g typescript

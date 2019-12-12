@@ -3,11 +3,9 @@ version: "3"
 services:
   web:
     build: .
-    depends_on: 
-      - postgres
+    command: npm run dev
     links: 
       - postgres
-    command: node dist/index.js
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
