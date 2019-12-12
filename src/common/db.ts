@@ -15,7 +15,7 @@ if (!db) {
         config.username,
         config.password,
         {
-            host: config.hostdatabase,
+            host: config.host,
             dialect: config.dialect,
             dialectOptions: {
                 socketPath: config.dialectOptions.socketPath
