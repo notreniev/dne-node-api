@@ -3,7 +3,7 @@ export const config = (env: string) => ({
         "username": "root",
         "password": "root",
         "database": "dnedb",
-        "host": "postgres",
+        "dbhost": "postgres",
         "dialectOptions": {
             "socketPath": '/var/run/postgresql/.s.PGSQL.5432'
         },
