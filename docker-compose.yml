@@ -21,7 +21,7 @@ services:
     ports: 
       - "5432:5432"
     expose:
-      - 5432
+      - "5432"
     environment: 
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "root"
@@ -36,7 +36,7 @@ services:
     ports: 
       - "27017:27017"
     expose:
-      - 27017
+      - "27017"
     environment: 
       MONGO_INITDB_ROOT_USERNAME: "root"
       MONGO_INITDB_ROOT_PASSWORD: "root"
