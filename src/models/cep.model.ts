@@ -1,7 +1,7 @@
 import { mySequelize } from "../common/db"
 const Sequelize = require('sequelize')
 
-export const CepModel = () => {
+export const CepPostgresModel = () => {
     const cep = mySequelize.define('ceps', {
         id: {
             type: Sequelize.INTEGER,

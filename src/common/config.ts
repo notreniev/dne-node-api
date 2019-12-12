@@ -9,6 +9,7 @@ export const config = (env: string) => ({
         "dialectOptions": {
             "socketPath": '/var/run/postgresql/.s.PGSQL.5432'
         },
+        "":"",
         "debug": true,
         "port": 3100
     },

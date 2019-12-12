@@ -10,6 +10,4 @@ COPY . .
 RUN npm i -g typescript
 RUN tsc
 
-RUN ls -la
-
 EXPOSE 3100

@@ -6,6 +6,9 @@ services:
     command: npm run dev
     links: 
       - postgres
+    depends_on: 
+      - postgres
+      - mongo
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
