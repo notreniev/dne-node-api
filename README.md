@@ -10,7 +10,7 @@ http://localhost:3100/cep/90650002
 
 O retorno desta consulta será um JSON com os seguintes dados:
 
-˜˜˜
+```json
 {
     result: 
     [
@@ -25,8 +25,7 @@ O retorno desta consulta será um JSON com os seguintes dados:
         }
     ]
 } 
-
-˜˜˜
+```
 
 O serviço sempre fará a busca primeiramente na base local do sistema e caso não encontre fará o acesso ao webservice dos correios para em seguida gravar o resultado da busca na base local. Esta base local então passará a servir como um cache para consultas de CEPs. 
 
