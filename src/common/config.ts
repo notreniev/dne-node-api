@@ -4,7 +4,7 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
-        "hostdatabase": "host.docker.internal",
+        "dbhost": "localhost",
         "dialect": "postgres",
         "dialectOptions": {
             "socketPath": '/var/run/postgresql/.s.PGSQL.5432'
@@ -18,7 +18,7 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
-        "hostdatabase": "host.docker.internal",
+        "dbhost": "postgres",
         "dialect": "mysql",
         "logging": false,
         "debug": false,
@@ -29,7 +29,7 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
-        "hostdatabase": "host.docker.internal",
+        "dbhost": "postgres",
         "dialect": "mysql",
         "debug": false,
         "port": 5000
