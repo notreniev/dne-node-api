@@ -1,4 +1,4 @@
-### DNE-NODE ###
+### DNE-NODE-API ###
 
 Busquei resolver um problema comum para muitas aplicações que precisam integrar-se com a base de dados dos correios (DNE - Diretório Nacional de Endereços) para obter informações de CEPs e endereços a assim compor as informações de endereços de pessoas para a maioria das necessidades de negócios existentes. 
 
