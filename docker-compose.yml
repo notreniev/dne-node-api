@@ -28,8 +28,7 @@ services:
       POSTGRES_DB: "dnedb"
     volumes:
       - ~/dbdata:/var/lib/postgresql/data
-    networks:
-      - pgnet
+
 
   mongo:
     image: mongo
@@ -41,8 +40,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: "root"
       MONGO_INITDB_ROOT_PASSWORD: "root"
       MONGO_INITDB_DATABASE: "dnedb"
-    networks:
-      - mongonet
+
     
   adminer:
     image: adminer
@@ -50,9 +48,7 @@ services:
       - "8080:8080"
     depends_on: 
       - postgres
-    networks:
-      - pgnet
-
+    
   mongoclient:
     image: mongoclient/mongoclient
     ports: 
@@ -62,15 +58,4 @@ services:
     environment:
       STARTUP_DELAY: 10
       MONGO_URL: "mongodb://root:root@mongo:27017/admin"
-    networks:
-      - mongonet
-
-
-networks:
-  pgnet:
-  mongonet:
-
-    #docker exec -it dne-node-api_mongo_1 mongo --host localhost -u root -p root --authenticationDatabase admin --eval "db.getSiblingDB('dnedb').createUser({user: 'root', pwd: 'root', roles: [{role: 'readWrite', db: 'dnedb'}]})"
-
-    #consigo rodar um docker exec no docker-compose ?
-    #consigo rodar um RUN dentro de um docker-compose
+    
