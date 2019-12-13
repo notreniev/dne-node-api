@@ -2,7 +2,7 @@ var soap = require('soap');
 import express = require('express')
 import { Context } from '../common/db/strategies/base/context';
 import { MongoDB } from '../common/db/strategies/mongodb/mongodb';
-import { LogModel } from '../common/db/strategies/mongodb/schemas/log.schema';
+import { Log as LogModel } from '../common/db/strategies/mongodb/schemas/log.schema';
 import { Postgres } from '../common/db/strategies/postgres/postgres';
 import { CepModel } from '../common/db/strategies/postgres/schemas/cep.schema';
 import { Router } from '../interfaces/router.interface';
@@ -20,7 +20,7 @@ class CepRouter extends Router {
         super()
         cepPostgresModel.sync()
         this.contextPostgres = new Context(new Postgres(cepPostgresModel))
-        this.contextMongo = new Context(new MongoDB(cepMongoModel))
+        this.contextMongo = new Context(new MongoDB<LogModel>(cepMongoModel))
     }
 
     getSoapDataAsync = async (url, args) => {

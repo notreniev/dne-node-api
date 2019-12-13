@@ -7,10 +7,10 @@ export interface Log extends mongoose.Document{
 }
 
 export interface LogModel extends mongoose.Model<Log>{
-    
+    findByLog(text: string): Promise<Log>
 }
 
-const LogSchema = new Schema({
+const logSchema = new Schema({
     timestamp: {
         type: String,
         allowNull: false
@@ -21,4 +21,4 @@ const LogSchema = new Schema({
     }
 })
 
-export const LogModel = mongoose.model<Log, LogModel>('log', LogSchema)
+export const Log = mongoose.model<Log, LogModel>('Log', logSchema)
