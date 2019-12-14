@@ -8,15 +8,15 @@ export class MongoDB<D extends mongoose.Document> extends ICrud {
     }
 
     create(item) {
-        console.log('model: ', this.model, 'item', item)
         let document = this.model.create(item)
         document
-            .then(res => console.log('documento salvo com sucesso'))
+            .then(res => console.log('documento salvo com sucesso', res))
             .catch(err => console.error('erro ao tentar salvar documento', err))
     }
 
     findAll = async () => {
         console.log('Lista de logs foi retornada do banco MongoDB')
+        this.model.find()
     }
 
     findById = async (log) => {

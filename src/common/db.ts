@@ -16,7 +16,7 @@ if (!postgresDb) {
         config.username,
         config.password,
         {
-            host: config.dbhost,
+            host: config.pghost,
             dialect: config.dialect,
             dialectOptions: {
                 socketPath: config.dialectOptions.socketPath
@@ -26,7 +26,7 @@ if (!postgresDb) {
 }
 
 if (!mongoDb) {
-    Mongoose.connect('mongodb://root:root@localhost:27017/dnedb', {
+    Mongoose.connect(`mongodb://${config.username}:${config.password}@${config.mghost}:27017/${config.database}`, {
         useNewUrlParser: true
     }, function (error) {
         if (!error) return

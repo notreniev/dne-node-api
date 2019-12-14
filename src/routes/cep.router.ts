@@ -20,7 +20,7 @@ class CepRouter extends Router {
         super()
         cepPostgresModel.sync()
         this.contextPostgres = new Context(new Postgres(cepPostgresModel))
-        this.contextMongo = new Context(new MongoDB<LogModel>(cepMongoModel))
+        this.contextMongo = new Context(new MongoDB(cepMongoModel))
     }
 
     getSoapDataAsync = async (url, args) => {

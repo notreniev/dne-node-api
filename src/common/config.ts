@@ -4,12 +4,12 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
-        "dbhost": "localhost",
+        "pghost": "localhost", //postgres
+        "mghost":"localhost", //mongo
         "dialect": "postgres",
         "dialectOptions": {
             "socketPath": '/var/run/postgresql/.s.PGSQL.5432'
         },
-        "":"",
         "debug": true,
         "port": 3100
     },
@@ -18,8 +18,12 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
-        "dbhost": "postgres",
+        "pghost": "postgres",
+        "mghost":"mongo",
         "dialect": "mysql",
+        "dialectOptions": {
+            "socketPath": undefined
+        },
         "logging": false,
         "debug": false,
         "port": 4000
@@ -29,7 +33,11 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
-        "dbhost": "postgres",
+        "mghost":"mongo",
+        "pghost": "postgres",
+        "dialectOptions": {
+            "socketPath": undefined
+        },
         "dialect": "mysql",
         "debug": false,
         "port": 5000

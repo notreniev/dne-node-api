@@ -51,18 +51,18 @@ services:
     expose: 
       - 8080
 
-  mongoclient:
-    image: mongoclient/mongoclient
-    ports: 
-      - "8081:3000"
-    expose: 
-      - 8081
-    depends_on: 
-      - mongo
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8082:8081
     environment:
-      STARTUP_DELAY: 10
-      MONGO_URL: "mongodb://root:root@mongo:27017/admin"
-
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: root!
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+    links:
+      - mongo
 
     #docker exec -it dne-node-api_mongo_1 mongo --host localhost -u root -p root --authenticationDatabase admin --eval "db.getSiblingDB('dnedb').createUser({user: 'root', pwd: 'root', roles: [{role: 'readWrite', db: 'dnedb'}]})"
 
