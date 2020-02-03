@@ -1,6 +1,6 @@
-import ICrud from "./../interfaces/interfaceCrud"
+import ICrud from "../interfaces/interfaceCrud"
 
-export class ContextStrategy extends ICrud{
+export class Context extends ICrud{
     database
     constructor(protected strategy) {
         super()

@@ -1,13 +1,16 @@
 var soap = require('soap');
 import express = require('express')
-import { ContextStrategy } from '../common/db/strategies/base/contextStrategy';
-import { MongoDB } from '../common/db/strategies/mongodb';
-import { Postgres } from '../common/db/strategies/postgres';
+import { Context } from '../common/db/strategies/base/context';
+import { MongoDB } from '../common/db/strategies/mongodb/mongodb';
+import { Log as LogModel } from '../common/db/strategies/mongodb/schemas/log.schema';
+import { Postgres } from '../common/db/strategies/postgres/postgres';
+import { CepModel } from '../common/db/strategies/postgres/schemas/cep.schema';
 import { Router } from '../interfaces/router.interface';
-import { CepModel } from '../models/cep.model';
 
 const url = "https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl";
-const cepModel = CepModel()
+
+const cepPostgresModel = CepModel
+const cepMongoModel = LogModel
 
 class CepRouter extends Router {
     contextPostgres = null
@@ -15,9 +18,9 @@ class CepRouter extends Router {
 
     constructor() {
         super()
-        cepModel.sync()
-        this.contextPostgres = new ContextStrategy(new Postgres(cepModel))
-        this.contextMongo = new ContextStrategy(new MongoDB(cepModel))  
+        cepPostgresModel.sync()
+        this.contextPostgres = new Context(new Postgres(cepPostgresModel))
+        this.contextMongo = new Context(new MongoDB(cepMongoModel))
     }
 
     getSoapDataAsync = async (url, args) => {
@@ -51,13 +54,21 @@ class CepRouter extends Router {
                 const response = await this.getSoapDataAsync(url, args)
                 retorno['result'] = response[0].return
                 this.contextPostgres.create(response[0].return)
+                this.contextMongo.create(response[0].return)
                 console.log('Inseriu no banco postgres')
             }else{
-                console.log('retornou na consulta do banco')
+                console.log('retornou na consulta do banco Postgres')
                 retorno['result'] = query
+                const log = ({
+                    timestamp: Date.now(),
+                    text: `CEP ${args.cep} retornado na consulta do banco Postgres`
+                })
+                
+                this.contextMongo.create(log)
             }
         } catch (error) {
-            retorno['error'] = error.cause.root.Envelope.Body.Fault.faultstring || error
+            //retorno['error'] = error// || error.cause.root.Envelope.Body.Fault.faultstring
+            throw new Error(error)
         }
         res.send(retorno)
     }

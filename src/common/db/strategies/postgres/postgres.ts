@@ -1,8 +1,11 @@
-import { Model } from "../../../interfaces/model.interface"
-import ICrud from "./interfaces/interfaceCrud"
+import { Model } from "../../../../interfaces/model.interface"
+import ICrud from "../interfaces/interfaceCrud"
 
 export class Postgres<T> extends ICrud {
+    
     model = null
+    sequelize = null
+
     constructor(model: Model<T>) {
         super()
         this.model = model
