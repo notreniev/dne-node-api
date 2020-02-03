@@ -22,7 +22,7 @@ services:
     ports: 
       - "5432:5432"
     expose:
-      - 5432
+      - "5432"
     environment: 
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "root"
@@ -36,6 +36,7 @@ services:
       - "27017:27017"
     expose:
       - 27017
+
     environment: 
       MONGO_INITDB_ROOT_USERNAME: "root"
       MONGO_INITDB_ROOT_PASSWORD: "root"
@@ -48,6 +49,17 @@ services:
       - "8080:8080"
     depends_on: 
       - postgres
+    
+  mongoclient:
+    image: mongoclient/mongoclient
+    ports: 
+      - "8081:3000"
+    depends_on: 
+      - mongo
+    environment:
+      STARTUP_DELAY: 10
+      MONGO_URL: "mongodb://root:root@mongo:27017/admin"
+    
     expose: 
       - 8080
 

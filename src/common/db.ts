@@ -11,6 +11,8 @@ if (!postgresDb) {
 
     config = configuration(process.env.NODE_ENV || 'development')
 
+    const sequelize = new Sequelize(`postgres://${config.username}:${config.password}@${config.dbhost}:5432/${config.database}`)
+
     const sequelize = new Sequelize(
         config.database,
         config.username,

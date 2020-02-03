@@ -4,7 +4,7 @@ export const config = (env: string) => ({
         "password": "root",
         "database": "dnedb",
         "host": "localhost",
-        "pghost": "localhost", //postgres
+        "dbhost": "postgres",
         "mghost":"localhost", //mongo
         "dialect": "postgres",
         "dialectOptions": {
@@ -41,6 +41,5 @@ export const config = (env: string) => ({
         "dialect": "mysql",
         "debug": false,
         "port": 5000
-    }
-
+    }    
 }[env] || {})
