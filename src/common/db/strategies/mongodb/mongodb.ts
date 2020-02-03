@@ -1,20 +1,22 @@
-import { Model } from "../../../../interfaces/model.interface"
+import * as mongoose from 'mongoose'
 import ICrud from "../interfaces/interfaceCrud"
 
+export class MongoDB<D extends mongoose.Document> extends ICrud {
 
-export class MongoDB<T> extends ICrud {
-    model = null
-    constructor(model: Model<T>) {
+    constructor(protected model: mongoose.Model<D>) {
         super()
-        this.model = model
     }
 
-    create(item){
-        console.log('O log foi salvo em MongoDB', item)
+    create(item) {
+        let document = this.model.create(item)
+        document
+            .then(res => console.log('documento salvo com sucesso', res))
+            .catch(err => console.error('erro ao tentar salvar documento', err))
     }
 
     findAll = async () => {
         console.log('Lista de logs foi retornada do banco MongoDB')
+        this.model.find()
     }
 
     findById = async (log) => {

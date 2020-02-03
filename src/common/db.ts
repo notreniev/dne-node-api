@@ -1,5 +1,4 @@
 import { config as configuration } from "../common/config";
-import { DBConnection } from "../interfaces/dbconnection.interface";
 const Sequelize = require('sequelize')
 const Mongoose = require('mongoose')
 
@@ -8,7 +7,7 @@ let mongoDb = null
 let config = null
 
 if (!postgresDb) {
- postgresDb = {}
+    postgresDb = {}
 
     config = configuration(process.env.NODE_ENV || 'development')
 
@@ -17,29 +16,27 @@ if (!postgresDb) {
         config.username,
         config.password,
         {
-            host: config.hostdatabase,
+            host: config.pghost,
             dialect: config.dialect,
             dialectOptions: {
                 socketPath: config.dialectOptions.socketPath
             }
         })
-     postgresDb['sequelize'] = sequelize
+    postgresDb['sequelize'] = sequelize
 }
 
-if (!mongoDb){
-    Mongoose.connect('mongodb://root:root@host.docker.internal:27017/dnedb', {
+if (!mongoDb) {
+    Mongoose.connect(`mongodb://${config.username}:${config.password}@${config.mghost}:27017/${config.database}`, {
         useNewUrlParser: true
-    }, function(error){
+    }, function (error) {
         if (!error) return
         console.log('>>>>>>>>> falha na conexão', error)
     })
-    
+
     mongoDb = Mongoose.connection
-    //console.log('mongo connection', mongoDb)
     mongoDb.once('open', () => console.log('>>>>>>>> database rodando!!!'))
     mongoDb['connection'] = mongoDb
 }
 
-export default <DBConnection>postgresDb
-export const mySequelize = postgresDb.sequelize
-export const myMongo = mongoDb
+export const postgresDB = postgresDb.sequelize
+export const mongoDB = mongoDb.connection

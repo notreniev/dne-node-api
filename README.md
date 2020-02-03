@@ -10,6 +10,7 @@ http://localhost:3100/cep/90650002
 
 O retorno desta consulta será um JSON com os seguintes dados:
 
+### docker-compose up
 ```javascript
 {
     result: 
